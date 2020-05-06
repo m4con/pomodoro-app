@@ -32,8 +32,7 @@ class App extends Component<{}, AppState> {
     }
 
     componentDidUpdate(prevProps: Readonly<{}>, prevState: Readonly<AppState>, snapshot?: any): void {
-        if(prevState.currentSessionType !== this.state.currentSessionType) {
-            console.log('counter should change');
+        if (prevState.currentSessionType !== this.state.currentSessionType) {
             this.resetCountdown();
             this.startCountdown();
         }
@@ -82,7 +81,7 @@ class App extends Component<{}, AppState> {
             this.setState((state) => ({
                 currentSessionLength: state.currentSessionLength - 1
             }))
-        } else if(this.state.currentSessionLength === 0){
+        } else if (this.state.currentSessionLength === 0) {
             this.setState((state) => {
                 let newSessionType = SESSION_TYPE.BREAK
                 if (state.currentSessionType === SESSION_TYPE.BREAK) {
@@ -115,14 +114,16 @@ class App extends Component<{}, AppState> {
             <div className="App">
                 <div>
                     <h3>Break Length</h3>
-                    <Counter count={this.state.breakSessionLength} updateCounter={this.setBreakSessionLength}/>
+                    <Counter count={this.state.breakSessionLength / 60} updateCounter={(minutes) => {
+                        this.setBreakSessionLength(minutes * 60)
+                    }
+                    }/>
                 </div>
 
                 <div>
                     <h3>Session Length</h3>
                     <Counter count={this.state.workSessionLength / 60} updateCounter={(minutes) => {
                         this.setWorkSessionLength(minutes * 60)
-                        this.setCurrentSessionLength(minutes * 60)
                     }
                     }/>
                 </div>
