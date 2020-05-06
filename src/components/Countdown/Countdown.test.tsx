@@ -4,6 +4,6 @@ import Countdown from "./Countdown";
 
 
 it('should render without crashing', () => {
-    const wrapper = shallow(<Countdown />)
+    const wrapper = shallow(<Countdown count={1} isRunning={false} />)
     expect(wrapper.find('div')).toHaveLength(1)
 })
