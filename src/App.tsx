@@ -109,28 +109,6 @@ class App extends Component<{}, AppState> {
         this.setState({currentSessionLength: value})
     }
 
-
-    // getCurrentCount = (sessionType: SESSION_TYPE): number => {
-    //     let currentCount = 0;
-    //     if (SESSION_TYPE.BREAK === sessionType) {
-    //         currentCount = this.getBreakCount()
-    //     }
-    //     if (SESSION_TYPE.WORK === sessionType) {
-    //         currentCount = this.getWorkCount()
-    //     }
-    //     return currentCount
-    // }
-    //
-    // getBreakCount = (): number => {
-    //     let breakCount = 0
-    //     return breakCount
-    // }
-    //
-    // getWorkCount = (): number => {
-    //     let workCount = 0
-    //     return workCount
-    // }
-
     render() {
 
         return (
