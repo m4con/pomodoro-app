@@ -86,13 +86,4 @@ describe('countdown', () => {
         jest.advanceTimersByTime(2001);
         expect(clearInterval).toHaveBeenCalledTimes(1);
     });
-    it('should reset the countdown to initial session length', () => {
-        wrapper.setState({
-            sessionLength: 20,
-            currentSessionLength: 20
-        });
-        wrapper.find('.start').simulate('click');
-        jest.advanceTimersByTime(21001);
-        expect(wrapper.state("currentSessionLength")).toEqual(20);
-    });
 });
